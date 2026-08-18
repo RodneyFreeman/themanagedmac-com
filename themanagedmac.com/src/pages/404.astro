@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page not found">
+  <section class="section not-found">
+    <div class="container-narrow">
+      <p class="eyebrow">404</p>
+      <h1>This Mac isn't enrolled here.</h1>
+      <p class="lede">
+        The page you're looking for doesn't exist, or it moved. Try the blog,
+        the resources library, or head back home.
+      </p>
+      <div class="cluster nf-actions">
+        <a href="/" class="btn btn-primary">Go home</a>
+        <a href="/blog/" class="btn btn-secondary">Visit the blog</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    text-align: center;
+  }
+
+  .not-found .container-narrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .nf-actions {
+    margin-top: var(--space-3);
+    gap: var(--space-3);
+    justify-content: center;
+  }
+</style>
