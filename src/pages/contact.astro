@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch about Apple device management, MDM, or anything written about on The Managed Mac."
+>
+  <section class="section-tight">
+    <div class="container-narrow contact-content">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's talk shop.</h1>
+      <p class="lede">
+        Whether it's a correction, a question about a post, or you're stuck on
+        an MDM problem of your own — I read everything that comes in.
+      </p>
+
+      <div class="contact-options">
+        <a href="mailto:hello@themanagedmac.com" class="card contact-card">
+          <h3>Email</h3>
+          <p class="text-secondary">hello@themanagedmac.com</p>
+          <span class="link-arrow">Send an email <span class="arrow">→</span></span>
+        </a>
+
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="card contact-card">
+          <h3>LinkedIn</h3>
+          <p class="text-secondary">Connect professionally</p>
+          <span class="link-arrow">Visit profile <span class="arrow">→</span></span>
+        </a>
+
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="card contact-card">
+          <h3>GitHub</h3>
+          <p class="text-secondary">Scripts and open-source tooling</p>
+          <span class="link-arrow">View repositories <span class="arrow">→</span></span>
+        </a>
+      </div>
+
+      <p class="text-secondary based-note">Based in Carmel, Indiana — happy to connect with the wider Indianapolis IT and Mac admin community.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .contact-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .based-note {
+    margin-top: var(--space-4);
+    font-size: 0.9375rem;
+  }
+
+  @media (max-width: 700px) {
+    .contact-options {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

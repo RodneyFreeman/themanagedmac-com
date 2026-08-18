@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Blog"
+  description="Field notes on Apple device management: MDM, Apple Business Manager, scripting, automation, and keeping fleets of Macs and iPhones healthy."
+>
+  <section class="section-tight">
+    <div class="container">
+      <header class="page-header">
+        <p class="eyebrow">Blog</p>
+        <h1>Field notes on managing Apple fleets</h1>
+        <p class="lede">
+          Practical write-ups on MDM, automation, and the day-to-day of keeping
+          Macs and iPhones enrolled, compliant, and out of your ticket queue.
+        </p>
+      </header>
+
+      {allPosts.length > 0 ? (
+        <div class="grid grid-3 post-grid">
+          {allPosts.map((post) => (
+            <PostCard
+              href={`/blog/${post.slug}/`}
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="text-secondary">No posts yet — check back soon.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    max-width: var(--max-width-narrow);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-7);
+  }
+
+  .post-grid {
+    align-items: stretch;
+  }
+</style>
