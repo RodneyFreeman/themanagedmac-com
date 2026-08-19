@@ -123,4 +123,4 @@ This uses Cloudflare Workers' **static assets** feature (no server-side
 Worker script needed) — `[assets] directory = "./dist"` serves the Astro
 static build directly, with `not_found_handling = "404-page"` so
 `dist/404.html` (generated from `src/pages/404.astro`) is served for
-unmatched routes.
+unmatched routes..
